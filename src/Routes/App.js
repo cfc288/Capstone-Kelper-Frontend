@@ -6,6 +6,8 @@ import Login from './Login/login.js';
 import Main from './Main/main.js';
 import ReactModal from 'react-modal';
 import Register from './Register/register';
+import { Button } from '@mui/material';
+
 
 let baseUrl = process.env.REACT_APP_BASEURL
 
@@ -68,15 +70,21 @@ useEffect (()=> {
         <div>
           <h1> Kelper (App.js) </h1>
 
-          <button onClick={openModal}>Login </button>
+          <Button variant="contained" type="submit" onClick={openModal}>
+                    Log In
+          </Button>
           < ReactModal
             isOpen={display}>
             <Login logIn={props.logIn}/>
             <button onClick={closeModal}>close modal app</button>
           </ ReactModal >
 
+          <h4>  New User? Click
+          <Button variant="text" onClick={openNewModal}>
+           here 
+          </Button>
+          to register for a new account</h4>
 
-          <a onClick={openNewModal}>  New User? Click here to register for a new account</a>
           < ReactModal 
             isOpen={newDisplay}>
 

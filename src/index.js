@@ -6,11 +6,14 @@ import * as serviceWorker from "../src/serviceWorker";
 import Check from './Routes/Check/check';
 import reportWebVitals from './reportWebVitals';
 import App from '../src/Routes/App'
+//import Button from '@mui/material/Button'
+import CssBaseline from '@mui/material/CssBaseline';
 
 let baseUrl = process.env.REACT_APP_BASEURL
 
 ReactDOM.render(
   <React.StrictMode>
+    <CssBaseline />
   <Check />
   </React.StrictMode>,
 document.getElementById("root")

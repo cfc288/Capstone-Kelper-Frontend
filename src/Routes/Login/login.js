@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from 'react'
 import Register from '../Register/register'
 import ReactModal from 'react-modal';
 import About from '../About/about';
+import { Button } from '@mui/material';
 
 let baseUrl = process.env.REACT_APP_BASEURL
 
@@ -82,7 +83,10 @@ function Login (props){
                     </label>
                     <input type='text' id='password' name='password' onChange={(e) => setPassword(e.target.value)} value={password} placeholder='Password'/>
                     <br />
-                    <input type="submit" value="Log In"/><br />
+                    <Button variant="contained" type="submit">
+                    Log In
+                    </Button>
+                    <br />
 
                 </form>
                 <br />

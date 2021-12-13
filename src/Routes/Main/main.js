@@ -5,6 +5,7 @@ import ReactModal from 'react-modal';
 // import DisplayClients from '../displayClients/displayClients';
 import DisplayOneClient from '../displayOneClient/displayOneClient';
 import Inbox from '../Inbox/inbox.js';
+
 // import NavBar from '../NavBar/NavBar.js'
 // import About from '../About/about.js';
 // import Inbox from '../Inbox/inbox.js';
