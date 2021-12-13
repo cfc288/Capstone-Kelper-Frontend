@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import './NavBar.css';
 import Check from '../Check/check';
 
-const baseUrl = 'http://localhost:8000/api/v1/'
+let baseUrl = process.env.REACT_APP_BASEURL
 
 function NavBar(props){
   //showMain={showMain}

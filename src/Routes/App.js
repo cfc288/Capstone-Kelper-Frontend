@@ -7,7 +7,7 @@ import Main from './Main/main.js';
 import ReactModal from 'react-modal';
 import Register from './Register/register';
 
-
+let baseUrl = process.env.REACT_APP_BASEURL
 
 function App(props){
 //logIn={logIn}  

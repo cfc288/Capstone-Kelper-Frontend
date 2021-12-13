@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from 'react'
 import ReactModal from 'react-modal';
 
-const baseUrl = 'http://localhost:8000/api/v1/'
+let baseUrl = process.env.REACT_APP_BASEURL
 
 
 

@@ -2,7 +2,7 @@ import React, { Component, useState } from 'react'
 import ReactModal from 'react-modal';
 
 
-const baseUrl = 'http://localhost:8000/api/v1/users'
+let baseUrl = process.env.REACT_APP_BASEURL
 
 export default function Register(props) {
 	const [newUsername, setUsername] = useState('')

@@ -14,7 +14,7 @@ import Inbox from '../Inbox/inbox.js';
 // import UserProfile from '../Profile/profile.js'
 
 
-const baseUrl = 'http://localhost:8000/api/v1/'
+let baseUrl = process.env.REACT_APP_BASEURL
 
 function Main(props) {
 // user={activeUser} 

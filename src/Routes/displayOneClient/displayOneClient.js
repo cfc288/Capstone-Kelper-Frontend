@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route, Link } from "react-router-dom";
 
-const baseUrl = 'http://localhost:8000/api/v1/'
+let baseUrl = process.env.REACT_APP_BASEURL
 
 export default function DisplayOneClient(props) {
   // client={client} 

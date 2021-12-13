@@ -3,7 +3,7 @@ import Register from '../Register/register'
 import ReactModal from 'react-modal';
 import About from '../About/about';
 
-const baseUrl = 'http://localhost:8000/api/v1/users'
+let baseUrl = process.env.REACT_APP_BASEURL
 
 function Login (props){
     //logIn={props.logIn}
@@ -28,9 +28,10 @@ function Login (props){
 
     const fetchLogin = (e) => {
         e.preventDefault()
+        console.log('baseUrl + login', baseUrl + 'users' + '/login')
         const user = {email, password, username}
 
-        fetch(baseUrl + '/login', {
+        fetch(baseUrl + 'users' + '/login', {
             method: 'Post',
             body: JSON.stringify(user),
             headers: {

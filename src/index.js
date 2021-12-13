@@ -7,6 +7,7 @@ import Check from './Routes/Check/check';
 import reportWebVitals from './reportWebVitals';
 import App from '../src/Routes/App'
 
+let baseUrl = process.env.REACT_APP_BASEURL
 
 ReactDOM.render(
   <React.StrictMode>

@@ -13,7 +13,7 @@ import Inbox from '../Inbox/inbox.js';
 // import EmployeeHome from '../EmployeeHome/employeeHome';
 import UserProfile from '../Profile/profile'
 
-const baseUrl = 'http://localhost:8000/api/v1/'
+let baseUrl = process.env.REACT_APP_BASEURL
 
 function Check(props){
 
