@@ -74,7 +74,7 @@ function Check(props){
     }
 
     const logout = () => {
-        fetch(baseUrl + 'users/logout', { credentials: 'include'})
+        fetch(baseUrl + '/users/logout', { credentials: 'include'})
         .then(res => res.json())
         .then(data => {
           if (data.status === 200) {

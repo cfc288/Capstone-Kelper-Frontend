@@ -36,8 +36,8 @@ function Inbox (props) {
 
 //USE EFFECT
     useEffect(()=>{
-        console.log('baseUrl+ messages/allmessagesperuser', baseUrl + 'messages/allmessagesperuser')
-        fetch(baseUrl + 'messages/allmessagesperuser',
+        console.log('baseUrl+ /messages/allmessagesperuser', baseUrl + '/messages/allmessagesperuser')
+        fetch(baseUrl + '/messages/allmessagesperuser',
         {
             credentials: 'include'
         })
@@ -57,7 +57,7 @@ function Inbox (props) {
 //delete message
 const deleteMessageOnClick = (e, id) => {
     e.preventDefault()
-    fetch(baseUrl + 'incidents' + `/${id}`, {
+    fetch(baseUrl + '/incidents' + `/${id}`, {
       method: 'DELETE',
       credentials: 'include'
     })

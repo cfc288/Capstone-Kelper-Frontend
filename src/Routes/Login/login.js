@@ -29,10 +29,10 @@ function Login (props){
 
     const fetchLogin = (e) => {
         e.preventDefault()
-        console.log('baseUrl + login', baseUrl + 'users' + '/login')
+        console.log('baseUrl + /users + /login', baseUrl + '/users' + '/login')
         const user = {email, password, username}
 
-        fetch(baseUrl + 'users' + '/login', {
+        fetch(baseUrl + '/users' + '/login', {
             method: 'Post',
             body: JSON.stringify(user),
             headers: {

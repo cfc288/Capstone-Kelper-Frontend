@@ -18,8 +18,8 @@ function NewMessage (props){
 
 
     useEffect(() => {
-        console.log('baseUrl + users/', baseUrl + 'users/')
-        fetch( baseUrl + 'users/',  
+        console.log('baseUrl + /users/', baseUrl + '/users/')
+        fetch( baseUrl + '/users/',  
         {
           credentials: 'include'
         })
@@ -44,9 +44,9 @@ const newMessage = (event, recieverID) => {
         message: message,
     }
 
-    console.log('baseUrl + messages/newmessage/reciever/ + recieverID: ', baseUrl + 'messages/newmessage/reciever/' + recieverID,)
+    console.log('baseUrl + /messages/newmessage/reciever/ + recieverID: ', baseUrl + '/messages/newmessage/reciever/' + recieverID,)
 
-    fetch(baseUrl + 'messages/newmessage/reciever/' + recieverID, {
+    fetch(baseUrl + '/messages/newmessage/reciever/' + recieverID, {
         method: 'POST',
         body: JSON.stringify(createdMessage, 
             ),

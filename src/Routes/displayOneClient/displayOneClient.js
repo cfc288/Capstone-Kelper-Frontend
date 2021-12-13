@@ -10,7 +10,7 @@ export default function DisplayOneClient(props) {
   // newReport={addNewReport}
 	console.log('props.clientID on displayOneClient', props.clientId)
   console.log('props.client on displayOneClient', props.client[0].id)
-  console.log('baseUrl + incidents', baseUrl + 'incidents/allreportsperclient/' + props.clientId )
+  console.log('baseUrl + /incidents', baseUrl + '/incidents/allreportsperclient/' + props.clientId )
   // console.log('props.report on displayOneClient',props.incidents)
   console.log('user', props.user )
   const [allReports, setReports] = useState([])
@@ -29,8 +29,8 @@ export default function DisplayOneClient(props) {
   
 
   useEffect(() => {
-      console.log('baseUrl + incidents', baseUrl + 'incidents/allreportsperclient/' + props.client.id )
-      fetch( baseUrl + 'incidents/allreportsperclient/' + `${props.clientId}`,  
+      console.log('baseUrl + /incidents', baseUrl + '/incidents/allreportsperclient/' + props.client.id )
+      fetch( baseUrl + '/incidents/allreportsperclient/' + `${props.clientId}`,  
       {
         credentials: 'include'
       })
@@ -56,7 +56,7 @@ const addNewReport = (event, id) => {
   const newIncident = {
       incident_event: newReport,
   }
-  fetch(baseUrl + 'incidents/newincident/client/' + id, {
+  fetch(baseUrl + '/incidents/newincident/client/' + id, {
       method: 'POST',
       body: JSON.stringify(newIncident, 
           ),
@@ -77,9 +77,9 @@ const addNewReport = (event, id) => {
 
 //deleteOne
 const deleteIncidentOnClick = (e, id) => {
-    console.log('baseUrl + incidents + `/${id}` ',baseUrl + 'incidents' + `/${id}`)
+    console.log('baseUrl + /incidents + `/${id}` ',baseUrl + '/incidents' + `/${id}`)
     e.preventDefault()
-    fetch(baseUrl + 'incidents' + `/${id}`, {
+    fetch(baseUrl + '/incidents' + `/${id}`, {
       method: 'DELETE',
       credentials: 'include'
     })
@@ -101,11 +101,11 @@ const deleteIncidentOnClick = (e, id) => {
   const editOnClick = (e, reportEdit, id) => {
     e.preventDefault()
     //console.log('reportEdit', reportEdit)
-    console.log(`baseUrl + 'incidents' + /${id}`, baseUrl + 'incidents' + `/${id}`)
+    console.log(`baseUrl + '/incidents' + /${id}`, baseUrl + '/incidents' + `/${id}`)
     const newReport = {
       incident_event: reportEdit
     }
-    fetch(baseUrl + 'incidents' + `/${id}`, {
+    fetch(baseUrl + '/incidents' + `/${id}`, {
       method: 'PUT',
       body: JSON.stringify(newReport),
       headers: {
@@ -133,11 +133,11 @@ const deleteIncidentOnClick = (e, id) => {
 const flagOnClick = (e, id) => {
   e.preventDefault()
   //console.log('reportEdit', reportEdit)
-  console.log(`baseUrl + 'incidents' + /${id}`, baseUrl + 'incidents' + `/${id}`)
+  console.log(`baseUrl + '/incidents' + /${id}`, baseUrl + '/incidents' + `/${id}`)
   const newFlag = {
     flagged_for_review: true
   }
-  fetch(baseUrl + 'incidents' + `/${id}`, {
+  fetch(baseUrl + '/incidents' + `/${id}`, {
     method: 'PUT',
     body: JSON.stringify(newFlag),
     headers: {
@@ -165,7 +165,7 @@ const unFlagOnClick = (e, id) => {
   const newFlag = {
     flagged_for_review: false
   }
-  fetch(baseUrl + 'incidents' + `/${id}`, {
+  fetch(baseUrl + '/incidents' + `/${id}`, {
     method: 'PUT',
     body: JSON.stringify(newFlag),
     headers: {

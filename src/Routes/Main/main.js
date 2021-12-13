@@ -56,8 +56,8 @@ console.log('isLoggedIn on main', props.isLoggedIn)
 
     
     useEffect(() => {
-        console.log('baseUrl+ incidents', baseUrl + 'incidents/')
-        fetch(baseUrl + 'clients/',
+        console.log('baseUrl+ /clients/', baseUrl + '/clients/')
+        fetch(baseUrl + '/clients/',
         {
             credentials: 'include'
         })
@@ -70,7 +70,7 @@ console.log('isLoggedIn on main', props.isLoggedIn)
             } 
           })
         //other fetch
-        fetch( baseUrl + 'incidents/',  
+        fetch( baseUrl + '/incidents/',  
         {
           credentials: 'include'
         })
@@ -93,7 +93,7 @@ console.log('isLoggedIn on main', props.isLoggedIn)
         const newClient = {
           name: newName,
         }
-        fetch(baseUrl + 'clients/', {
+        fetch(baseUrl + '/clients/', {
           method: 'POST',
           body: JSON.stringify(newClient),
           headers: {
@@ -118,11 +118,11 @@ console.log('isLoggedIn on main', props.isLoggedIn)
             console.log('selectClientID in addNewReport', selectClientId)
             console.log('selectClient in addNewReport', selectClient)
             console.log('clientID in addNewReport', clientID)
-            console.log('baseUrl + incidents/newincident/client/ + selectClient', baseUrl + 'incidents/newincident/client/' + selectClient)
+            console.log('baseUrl + /incidents/newincident/client/ + selectClient', baseUrl + '/incidents/newincident/client/' + selectClient)
         const newIncident = {
             incident_event: newReport,
         }
-        fetch(baseUrl + 'incidents/newincident/client/' + selectClient, {
+        fetch(baseUrl + '/incidents/newincident/client/' + selectClient, {
             method: 'POST',
             body: JSON.stringify(newIncident, 
                 //flagged_for_review=false (this defaults false on backend, do i need?)
@@ -146,7 +146,7 @@ console.log('isLoggedIn on main', props.isLoggedIn)
     const deleteOnClick = (event, id) => {
         console.log("delete route")
         event.preventDefault()
-        fetch(baseUrl + 'clients' + `/${id}`, {
+        fetch(baseUrl + '/clients' + `/${id}`, {
           method: 'DELETE',
           credentials: 'include'
         })

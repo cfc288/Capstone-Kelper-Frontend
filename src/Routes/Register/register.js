@@ -52,8 +52,8 @@ export default function Register(props) {
             isClient: false,
             isEmployee: true}
             console.log(newUser)
-        console.log('baseURL for registerEmployee', baseUrl + 'users' +'/register')
-		fetch(baseUrl + 'users' +'/register', {
+        console.log('baseURL for registerEmployee', baseUrl + '/users' +'/register')
+		fetch(baseUrl + '/users' +'/register', {
 			method: 'POST',
 			body: JSON.stringify(newUser),
 			headers: {
@@ -90,8 +90,8 @@ export default function Register(props) {
             isClient: true,
             isAdmin:false,
             isEmployee: false }
-        console.log('baseURL for registerClient', baseUrl + 'users' +'/register',)
-		fetch(baseUrl + 'users' +'/register', {
+        console.log('baseURL for registerClient', baseUrl + '/users' +'/register',)
+		fetch(baseUrl + '/users' +'/register', {
 			method: 'POST',
 			body: JSON.stringify(newUser),
 			headers: {
