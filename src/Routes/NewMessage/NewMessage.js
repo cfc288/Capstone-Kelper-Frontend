@@ -73,7 +73,7 @@ const newMessage = (event, recieverID) => {
         const foundUser = allUsers.find((users) => users.username === username)
         setRecieverID(foundUser.id)
         console.log('foundUser?: ', foundUser)
-        console.log('foundUserId: ', foundUser.id)
+        console.log('foundUser.id: ', foundUser.id)
         console.log('recieverID: ', recieverID)
         newMessage(e, recieverID)
     }
