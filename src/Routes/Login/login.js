@@ -30,6 +30,7 @@ function Login (props){
     const fetchLogin = (e) => {
         e.preventDefault()
         console.log('baseUrl + /users + /login', baseUrl + '/users' + '/login')
+        console.log('un, email, pw:', username, email, password)
         const user = {email, password, username}
 
         fetch(baseUrl + '/users' + '/login', {
