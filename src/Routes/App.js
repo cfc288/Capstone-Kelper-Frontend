@@ -78,7 +78,7 @@ useEffect (()=> {
           <button className="loginbutton" type="submit" onClick={openModal}>
             Log In
           </button>
-          
+
           < ReactModal 
             className='loginModal'
             isOpen={display}>
@@ -92,11 +92,12 @@ useEffect (()=> {
 
         <div>
           <h4>  
-            <div className='newUser'>New User? Click
+            <div className='newUser'>
+              New User? Click
                 <button className="herebutton" onClick={openNewModal}>
                 here 
                 </button>
-            to register for a new account 
+              to register for a new account 
             </div> 
           </h4>
         </div>
