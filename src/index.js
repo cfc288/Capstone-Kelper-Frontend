@@ -1,19 +1,19 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import {BrowserRouter} from 'react-router-dom';
-import "./index.css";
+//import "./index.css";
 import * as serviceWorker from "../src/serviceWorker";
 import Check from './Routes/Check/check';
 import reportWebVitals from './reportWebVitals';
 import App from '../src/Routes/App'
-//import Button from '@mui/material/Button'
-import CssBaseline from '@mui/material/CssBaseline';
+//import 'bootstrap/dist/css/bootstrap.min.css';
+// import CssBaseline from '@mui/material/CssBaseline';
+// import Button from 'react-bootstrap/Button';
 
 let baseUrl = process.env.REACT_APP_BASEURL
 
 ReactDOM.render(
   <React.StrictMode>
-    <CssBaseline />
   <Check />
   </React.StrictMode>,
 document.getElementById("root")

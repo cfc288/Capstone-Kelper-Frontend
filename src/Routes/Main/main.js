@@ -6,14 +6,6 @@ import ReactModal from 'react-modal';
 import DisplayOneClient from '../displayOneClient/displayOneClient';
 import Inbox from '../Inbox/inbox.js';
 
-// import NavBar from '../NavBar/NavBar.js'
-// import About from '../About/about.js';
-// import Inbox from '../Inbox/inbox.js';
-// import Check from '../Check/check'
-// import ClientHome from '../ClientHome/clientHome.js';
-// import EmployeeHome from '../EmployeeHome/employeeHome.js';
-// import UserProfile from '../Profile/profile.js'
-
 
 let baseUrl = process.env.REACT_APP_BASEURL
 
@@ -231,7 +223,7 @@ console.log('isLoggedIn on main', props.isLoggedIn)
                                 user={props.user}
                                 deleteClientOnClick={props.deleteOnClick} 
                                 />
-                                <button onClick={closeModal}>close modal displayClient.js
+                                <button variant="primary" onClick={closeModal}>close modal displayClient.js
                                 </button>
                             </ReactModal>
 
@@ -287,41 +279,3 @@ export default Main
 
 
 
-
-
-
-{/* <p> showAbout is false</p>
-            <Inbox 
-            user={props.user} 
-            isLoggedIn={props.isLoggedIn}
-            showMain={props.showMain}
-            showInbox={props.showInbox}
-            showAbout={props.showAbout}
-            /> */}
-
-
-            // {
-            //     showIncidentForm ?
-            //         <form onSubmit={addNewReport} isOpen={showIncidentForm}>
-                    
-
-            //     <select value={selectClient} onChange={(e)=>{
-            //         setSelectClient(e.target.value)
-            //     }}> Select Client Here
-            //         {
-            //             clients.map((client)=> {
-            //                 return (
-            //                     <option value={client.id}> {client.name} </option>
-            //                 )
-            //             })
-            //         }                                
-            //     </select>
-
-
-            //             <input id="report" type="text" name="report" value={newReport} onChange={(e) => setNewReport(e.target.value)} placeholder="Describe Incident Here"/>
-                    
-            //             <input type="submit" value="Add Report" onClick={(e)=>{setSelectClientID(selectClient.id)}}/><br />
-            //             <button onClick={()=> setShowForm(false)}>close form</button>
-            //         </form>
-            // : null
-            // }

@@ -121,32 +121,37 @@ export default function Register(props) {
 
 
             <button onClick={openModal}>For employees </button>
-            < ReactModal
-                isOpen={display}>
-                <form onSubmit={registerEmployee}>
-                    <input id="username" type="text" value={newUsername} onChange={(e) => setUsername(e.target.value)} placeholder="Username"/><br />
-                    
-                    <input id="email" type="email" name="email" value={newEmail} onChange={(e) => setEmail(e.target.value)} placeholder="Email"/><br />
-                   
-                    <input id="password" type="password" name="password" value={newPassword} onChange={(e) => setPassword(e.target.value)} placeholder="Password"/><br />
+                <ReactModal isOpen={display}>
+                <div>
+                    <div>
+                        <form onSubmit={registerEmployee}>
+                            <input id="username" type="text" value={newUsername} onChange={(e) => setUsername(e.target.value)} placeholder="Username"/><br />
+                            
+                            <input id="email" type="email" name="email" value={newEmail} onChange={(e) => setEmail(e.target.value)} placeholder="Email"/><br />
+                        
+                            <input id="password" type="password" name="password" value={newPassword} onChange={(e) => setPassword(e.target.value)} placeholder="Password"/><br />
 
-                    <input id="location" type="location" name="location" value={newLocation} onChange={(e) => setLocation(e.target.value)} placeholder="Location"/><br />
+                            <input id="location" type="location" name="location" value={newLocation} onChange={(e) => setLocation(e.target.value)} placeholder="Location"/><br />
 
-                    <input id="company" type="company" name="company" value={newCompany} onChange={(e) => setCompany(e.target.value)} placeholder="Company"/><br />
+                            <input id="company" type="company" name="company" value={newCompany} onChange={(e) => setCompany(e.target.value)} placeholder="Company"/><br />
 
-                    <input id="employee_title" type="employeeTitle" name="employeeTitle" value={newEmployeeTitle} onChange={(e) => setTitle(e.target.value)} placeholder="Your Title of Employement ie: Manager "/><br />
+                            <input id="employee_title" type="employeeTitle" name="employeeTitle" value={newEmployeeTitle} onChange={(e) => setTitle(e.target.value)} placeholder="Your Title of Employement ie: Manager "/><br />
 
 
-                    <input type="submit" value="Register"/><br />
-                </form>
-                <button onClick={closeModal}>close modal register</button>
-            </ReactModal>
+                            <input type="submit" value="Register"/><br />
+                        </form>
+                    </div>
+                    <button onClick={closeModal}>close modal register</button>
+                </div>
+                </ReactModal>
 
 
             <button onClick={openNewModal}>For Clients </button>
-            < ReactModal
-                isOpen={newDisplay}>
+            <ReactModal
+            isOpen={newDisplay}>
+
                 <form onSubmit={registerClient}>
+
                     <input id="username" type="text" value={newUsername} onChange={(e) => setUsername(e.target.value)} placeholder="Username"/><br />
                     
                     <input id="email" type="email" name="email" value={newEmail} onChange={(e) => setEmail(e.target.value)} placeholder="Email"/><br />
@@ -157,9 +162,13 @@ export default function Register(props) {
 
                     <input type="submit" value="Register"/><br />
                 </form>
-                <button onClick={closeNewModal}>close modal register</button>
+
+                    <button onClick={closeNewModal}>close modal register</button>
             </ReactModal>
 
+            <button onClick={props.closeNewModal}>
+                Back
+            </button>
 
 
 		</div>

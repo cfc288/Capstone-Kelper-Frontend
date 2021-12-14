@@ -243,7 +243,6 @@ const passID = (id) => {
                   : null
                   } </td> ||
                 <td><button onClick={(e)=>{deleteIncidentOnClick(e, report.id)}}>Delete Report</button></td>
-
 							</tr>
 
               <tr>  

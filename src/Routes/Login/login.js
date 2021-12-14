@@ -2,7 +2,7 @@ import React, { Component, useState, useEffect } from 'react'
 import Register from '../Register/register'
 import ReactModal from 'react-modal';
 import About from '../About/about';
-import { Button } from '@mui/material';
+import './login.css';
 
 let baseUrl = process.env.REACT_APP_BASEURL
 
@@ -63,36 +63,47 @@ function Login (props){
 
     
         return (
+            <div className="loginDiv">
+                <h2> Login Modal</h2>
             <div>
-                
-                <h1> Login/Register Modal</h1>
+                <div>
+                    <form onSubmit={fetchLogin}>
+                            <div className='user-box'>
+                                <label >
+                                    Username:
+                                </label>
+                                    
+                                        <input type='text' id='name' name='name' onChange={(e) => setUsername(e.target.value)} value={username} placeholder='Username'/>
+                            </div>
+                        <br />
+                            <div className='user-box'>
+                                <label >
+                                    Email:
+                                </label>
+                                    
+                                        <input id="email" type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email"/>
+                            </div>
+                        <br />
+                            <div className='user-box'>
+                                <label >
+                                    Password:
+                                </label>
+                                    
+                                        <input type='text' id='password' name='password' onChange={(e) => setPassword(e.target.value)} value={password} placeholder='Password'/>
+                            </div>
+                        <br />
+                            <button variant="contained" type="submit">
+                        Log In
+                        </button>
+                        <br />
+                    </form>
+                </div>
+                <br />
+                <div>
+                    <button  onClick={props.closeModal} className="back-button">Back</button>
+                </div>
+            </div>
 
-                
-                <form onSubmit={fetchLogin}>
-                    <label >
-                        Username:
-                    </label>
-                    <input type='text' id='name' name='name' onChange={(e) => setUsername(e.target.value)} value={username} placeholder='Username'/>
-                    <br />
-                    <label >
-                        Email:
-                    </label>
-                    <input id="email" type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email"/>
-                    <br />
-                    <label >
-                        Password:
-                    </label>
-                    <input type='text' id='password' name='password' onChange={(e) => setPassword(e.target.value)} value={password} placeholder='Password'/>
-                    <br />
-                    <Button variant="contained" type="submit">
-                    Log In
-                    </Button>
-                    <br />
-
-                </form>
-                <br />
-                <br />
-                <br />
                 
 
 

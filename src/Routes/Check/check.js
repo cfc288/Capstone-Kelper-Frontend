@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import ReactModal from 'react-modal';
-import Login from '../Login/login.js';
+// import Login from '../Login/login.js';
 import Main from '../Main/main.js';
 import App from '../App';
-
-
-
 import NavBar from '../NavBar/NavBar.js'
 import About from '../About/about.js';
 import Inbox from '../Inbox/inbox.js';
-// import ClientHome from '../ClientHome/clientHome.js';
-// import EmployeeHome from '../EmployeeHome/employeeHome';
-import UserProfile from '../Profile/profile'
+// import UserProfile from '../Profile/profile'
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 let baseUrl = process.env.REACT_APP_BASEURL
 

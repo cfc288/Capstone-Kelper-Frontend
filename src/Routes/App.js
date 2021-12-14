@@ -6,7 +6,12 @@ import Login from './Login/login.js';
 import Main from './Main/main.js';
 import ReactModal from 'react-modal';
 import Register from './Register/register';
-import { Button } from '@mui/material';
+import styles from './appModule.module.css'
+
+//import Button from 'react-bootstrap/Button';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 
 let baseUrl = process.env.REACT_APP_BASEURL
@@ -58,7 +63,7 @@ useEffect (()=> {
  
   return (
     <div>
-      <button onClick={openAboutModal}> About </button>
+      <button className="about-button" onClick={openAboutModal}> About </button>
       <ReactModal isOpen={aboutDisplay}>
           <button onClick={closeAboutModal}>close about modal App.js
           </button>
@@ -68,30 +73,41 @@ useEffect (()=> {
 
       { !props.isLoggedIn &&
         <div>
-          <h1> Kelper (App.js) </h1>
+          <h1 className="oval"> Kelper </h1>
 
-          <Button variant="contained" type="submit" onClick={openModal}>
-                    Log In
-          </Button>
-          < ReactModal
+          <button className="loginbutton" type="submit" onClick={openModal}>
+            Log In
+          </button>
+          
+          < ReactModal 
+            className='loginModal'
             isOpen={display}>
-            <Login logIn={props.logIn}/>
-            <button onClick={closeModal}>close modal app</button>
+              <Login 
+              logIn={props.logIn} 
+              closeModal={closeModal}/>
           </ ReactModal >
 
-          <h4>  New User? Click
-          <Button variant="text" onClick={openNewModal}>
-           here 
-          </Button>
-          to register for a new account</h4>
 
-          < ReactModal 
+
+
+        <div>
+          <h4>  
+            <div className='newUser'>New User? Click
+                <button className="herebutton" onClick={openNewModal}>
+                here 
+                </button>
+            to register for a new account 
+            </div> 
+          </h4>
+        </div>
+
+          <ReactModal 
             isOpen={newDisplay}>
-
-              <Register logIn={props.logIn}/>
-              <button onClick={closeNewModal}>close modal login</button>
-          </ ReactModal>
-          
+              <Register 
+              logIn={props.logIn}
+              closeNewModal={closeNewModal}
+              />
+          </ReactModal>
         </div>  
       }
     </div>
