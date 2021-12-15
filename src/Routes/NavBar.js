@@ -1,14 +1,15 @@
 import React, { Component, useState } from 'react'
 import { Link } from "react-router-dom";
-import './NavBar.css';
-import Check from '../Check/check';
+import './App.css'
+
+// import Check from './check';
 
 let baseUrl = process.env.REACT_APP_BASEURL
 
 function NavBar(props){
-  //showMain={showMain}
-  //user={activeUser} 
+  //activeUser={activeUser} 
   //logout={logout}
+  // isLoggedIn={isLoggedIn}
   //--------------------
   //showMain={showMain}
   //openMain={openMain}
@@ -16,8 +17,10 @@ function NavBar(props){
   //showAbout={showAbout}
   //openAbout={openAbout}
   //closeAbout={closeAbout}
+  // showInbox={showInbox}
+  // openInbox={openInbox}
   //---------------------
-  // console.log('user in NavBar', props.user)
+  // console.log('user in NavBar', props.activeUser)
   // console.log('isLoggedIn in NavBar', props.isLoggedIn)
 
 
@@ -64,23 +67,25 @@ function NavBar(props){
 
 
 return(
-    <ul>
-          <li>
-          <button onClick={(e)=> {props.openMain(e)}} > Home </button>
-          </li>
-          ||
-          <li>
-            <button onClick={(e)=> {props.openAbout(e)}}>About</button>
-          </li>
-          ||
-          <li>
-            <button onClick={(e)=> {props.openInbox(e)}}>Inbox</button>
-          </li>
-          ||
-          <li>
-            <button onClick={()=> props.logout()}> Log Out </button>
-          </li>
-    </ul>
+  <div className='div-navBar-list'>
+      <ul className='ul-navBar-list'>
+            <li>
+            <button onClick={(e)=> {props.openMain(e)}} > Home </button>
+            </li>
+            ||
+            <li>
+              <button onClick={(e)=> {props.openAbout(e)}}>About</button>
+            </li>
+            ||
+            <li>
+              <button onClick={(e)=> {props.openInbox(e)}}>Inbox</button>
+            </li>
+            ||
+            <li>
+              <button onClick={()=> props.logout()}> Log Out </button>
+            </li>
+      </ul>
+    </div>
       )
 }
 

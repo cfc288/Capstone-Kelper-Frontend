@@ -1,6 +1,6 @@
 import React, { Component, useState, useEffect } from 'react'
 import ReactModal from 'react-modal';
-import NewMessage from '../NewMessage/NewMessage';
+import NewMessage from './NewMessage';
 
 
 
@@ -8,12 +8,12 @@ import NewMessage from '../NewMessage/NewMessage';
 let baseUrl = process.env.REACT_APP_BASEURL
 
 function Inbox (props) {
-    //user={activeUser}
+    //activeUser={activeUser}
     //showMain={showMain}
     //showAbout={showAbout}
     //showInbox={showInbox}
     
-    console.log('user on Inbox', props.user)
+    console.log('activeUser on Inbox', props.activeUser)
     console.log('isLoggedIn on Inbox', props.isLoggedIn)
 
     const [display, setDisplay] = useState(false)
@@ -91,7 +91,7 @@ const deleteMessageOnClick = (e, id) => {
                         <button onClick={openModal}> Send New Message </button>
                         <ReactModal isOpen={display}>
                             <NewMessage
-                            user={props.user}
+                            activeUser={props.activeUser}
                             closeModal={closeModal}
                             />
                             <button onClick={closeModal}>close modal inbox</button>

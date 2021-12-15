@@ -3,17 +3,22 @@ import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Switch, Link, Routes, Route} from 'react-router-dom';
 import ReactModal from 'react-modal';
 // import DisplayClients from '../displayClients/displayClients';
-import DisplayOneClient from '../displayOneClient/displayOneClient';
-import Inbox from '../Inbox/inbox.js';
-
+import DisplayOneClient from './displayOneClient';
+import Inbox from './inbox';
+import './App.css'
 
 let baseUrl = process.env.REACT_APP_BASEURL
 
 function Main(props) {
-// user={activeUser} 
+// activeUser={activeUser} 
 // isLoggedIn={isLoggedIn} 
 // showMain={showMain}
-console.log('user on main', props.user)
+// showAbout={showAbout}
+// showInbox={showInbox}
+// openInbox={openInbox}
+// openAbout={openAbout}
+// openMain={openMain}
+console.log('activeUser on main', props.activeUser)
 console.log('isLoggedIn on main', props.isLoggedIn)
         
 
@@ -28,6 +33,9 @@ console.log('isLoggedIn on main', props.isLoggedIn)
     const [clientID, setClientID] = useState('')
     const [selectClient, setSelectClient] = useState({})
     const [selectClientId, setSelectClientID] = useState('')
+    const [searchClient, setSearchClient] = useState('')
+    const [filteredClients, setFilteredClients] = useState([])
+
 
  
     //#####
@@ -155,14 +163,21 @@ console.log('isLoggedIn on main', props.isLoggedIn)
         // console.log('clients delete route')
       }
     
-    const filterIncidentsByClient = (id) => {
-        return incidents.filter((incident)=>{
-            return incident.client_referrence.id === id
-        })
-    }
+    // const filterIncidentsByClient = (id) => {
+    //     return incidents.filter((incident)=>{
+    //         return incident.client_referrence.id === id
+    //     })
+    // }
 
+    // const clientFilterOnChange = (e) => {
+    //     setSearchClient({
+    //         inputValue: e.target.value
+    //     })
+    // }
 
-
+    // const getfilteredClients = () => {
+    //     setFilteredClients()
+    // }
 
 
 
@@ -184,7 +199,8 @@ console.log('isLoggedIn on main', props.isLoggedIn)
                                 <form onSubmit={addNewClient} isOpen={showForm}> 
                                 <input id="name" type="text" name="name" value={newName} onChange={(e) => setNewName(e.target.value)} placeholder="Name of Client"/>
                                 
-                                <input type="submit" value="Add Client"/><br />
+                                <input type="submit" value="Add Client"/>
+                                <br />
                                 <button onClick={()=> setShowForm(false)}>close form</button>
                                 </form> 
                             </div>
@@ -220,7 +236,7 @@ console.log('isLoggedIn on main', props.isLoggedIn)
                                 <DisplayOneClient 
                                 clientId={clientID}
                                 client={clients}
-                                user={props.user}
+                                activeUser={props.activeUser}
                                 deleteClientOnClick={props.deleteOnClick} 
                                 />
                                 <button variant="primary" onClick={closeModal}>close modal displayClient.js

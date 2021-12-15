@@ -6,7 +6,7 @@ let baseUrl = process.env.REACT_APP_BASEURL
 
 
 function NewMessage (props){
-    //user={props.user}
+    //activeUser={props.activeUser}
     //closeModal={closeModal}
 
     const [allUsers, setAllUsers] = useState('')
@@ -74,8 +74,8 @@ const newMessage = (event, recieverID) => {
         setRecieverID(foundUser.id)
         console.log('foundUser?: ', foundUser)
         console.log('foundUser.id: ', foundUser.id)
-        console.log('recieverID: ', recieverID)
-        newMessage(e, recieverID)
+        //console.log('recieverID: ', recieverID)
+        newMessage(e, foundUser.id)
     }
 
 

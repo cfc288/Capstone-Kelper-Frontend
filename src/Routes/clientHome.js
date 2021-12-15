@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ReactModal from 'react-modal';
-import Login from '../Login/login.js';
-import Main from '../Main/main.js';
+import Login from './login.js';
+import Main from './main.js';
 
 
 function ClientHome(){

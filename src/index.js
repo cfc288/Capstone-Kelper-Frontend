@@ -3,9 +3,10 @@ import * as ReactDOM from "react-dom";
 import {BrowserRouter} from 'react-router-dom';
 //import "./index.css";
 import * as serviceWorker from "../src/serviceWorker";
-import Check from './Routes/Check/check';
+import Check from './Routes/check';
 import reportWebVitals from './reportWebVitals';
-import App from '../src/Routes/App'
+// import SearchedClients from "./searchedClients";
+// import App from '../src/Routes/App'
 //import 'bootstrap/dist/css/bootstrap.min.css';
 // import CssBaseline from '@mui/material/CssBaseline';
 // import Button from 'react-bootstrap/Button';

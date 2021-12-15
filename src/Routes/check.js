@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import ReactModal from 'react-modal';
+import './App.css'
 // import Login from '../Login/login.js';
-import Main from '../Main/main.js';
-import App from '../App';
-import NavBar from '../NavBar/NavBar.js'
-import About from '../About/about.js';
-import Inbox from '../Inbox/inbox.js';
+import Main from './main.js';
+import LoginOrRegister from './loginORregister';
+import NavBar from './NavBar.js'
+import About from './about.js';
+import Inbox from './inbox.js';
 // import UserProfile from '../Profile/profile'
-// import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 let baseUrl = process.env.REACT_APP_BASEURL
 
@@ -111,7 +112,7 @@ function Check(props){
                                         <div>
                                             { showMain ?
                                                 <Main 
-                                                    user={activeUser} 
+                                                    activeUser={activeUser} 
                                                     isLoggedIn={isLoggedIn} 
                                                     showMain={showMain}
                                                     showAbout={showAbout}
@@ -127,7 +128,7 @@ function Check(props){
                                         <div>
                                             { showAbout ? 
                                                 <About 
-                                                    user={activeUser} 
+                                                    activeUser={activeUser} 
                                                     isLoggedIn={isLoggedIn}
                                                     showMain={showMain}
                                                     showAbout={showAbout}
@@ -151,6 +152,7 @@ function Check(props){
                                                     openInbox={openInbox}
                                                     openAbout={openAbout}
                                                     openMain={openMain}
+
                                                 />
                                             : <p>showInbox is false </p>
                                             }
@@ -158,7 +160,12 @@ function Check(props){
 
                                     </div>   
                         </div>                    
-                    : <App logIn={logIn}  isLoggedIn={isLoggedIn}/> 
+                    : <LoginOrRegister
+                        activeUser={activeUser}  
+                        isLoggedIn={isLoggedIn}
+                        setIsLoggedIn={setIsLoggedIn}
+                        setActiveUser={setActiveUser}
+                        /> 
                 }
 
             </div>
@@ -169,32 +176,3 @@ function Check(props){
 export default Check
 
 
-
-
-{/* <div>
-                        <Routes> 
-                            <Route path='/()' 
-                                user={activeUser} 
-                                isLoggedIn={isLoggedIn}
-                                showMain={showMain}
-                                showAbout={showAbout}
-                                showInbox={showInbox}
-                            />
-
-                            <Route path='/about' 
-                                element={
-                                    <About 
-                                    
-                                    />
-                                } 
-                            />
-
-                            <Route path='/inbox' 
-                                element={
-                                    <Inbox 
-                                    
-                                    />
-                                } 
-                            />
-                        </Routes>
-                </div> */}

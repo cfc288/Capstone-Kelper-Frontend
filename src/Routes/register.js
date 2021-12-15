@@ -5,6 +5,12 @@ import ReactModal from 'react-modal';
 let baseUrl = process.env.REACT_APP_BASEURL
 
 export default function Register(props) {
+    // activeUser={props.activeUser}
+    // isLoggedIn={props.isLoggedIn}
+    // closeNewModal={closeNewModal}
+    // setIsLoggedIn={props.setIsLoggedIn}
+
+
 	const [newUsername, setUsername] = useState('')
 	const [newEmail, setEmail] = useState('')
 	const [newPassword, setPassword] = useState('')
@@ -73,7 +79,8 @@ export default function Register(props) {
                 setLocation('')
                 setTitle('')
                 setIsEmployee(true)
-				props.logIn(data.data)
+				props.activeUser(data.data)
+                props.setIsLoggedIn(true)
 			}
 		})
 	}
@@ -111,7 +118,8 @@ export default function Register(props) {
                 setLocation('')
                 setTitle('none')
                 setIsClient(true)
-				props.logIn(data.data)
+				props.activeUser(data.data)
+                props.setIsLoggedIn(true)
 			}
 		})
 	}

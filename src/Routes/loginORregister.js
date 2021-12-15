@@ -1,12 +1,12 @@
 import React, { Component, useState, useEffect } from 'react'
 import './App.css';
-import About from './About/about.js';
-import Check from './Check/check.js';
-import Login from './Login/login.js';
-import Main from './Main/main.js';
+import About from './about.js';
+import Check from './check.js';
+import Login from './login.js';
+import Main from './main.js';
 import ReactModal from 'react-modal';
-import Register from './Register/register';
-import styles from './appModule.module.css'
+import Register from './register';
+
 
 //import Button from 'react-bootstrap/Button';
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,12 +16,14 @@ import styles from './appModule.module.css'
 
 let baseUrl = process.env.REACT_APP_BASEURL
 
-function App(props){
-//logIn={logIn}  
-//isLoggedIn={isLoggedIn}
-const [activeUser, setActiveUser] = useState({})
-const [isEmployee, setEmployee] = useState(false)
-const [isClient, setClient] = useState(false)
+function LoginOrRegister(props){
+// activeUser={activeUser}  
+// isLoggedIn={isLoggedIn}
+// setIsLoggedIn={setIsLoggedIn}
+// setActiveUser={setActiveUser}
+const [isEmployeeUser, setEmployeeUser] = useState({})
+const [isEmployee, setIsEmployee] = useState(false)
+const [isClient, setIsClient] = useState(false)
 //---------------------------------------------------
 const [display, setDisplay] = useState(false)
 const openModal = () => {
@@ -83,8 +85,11 @@ useEffect (()=> {
             className='loginModal'
             isOpen={display}>
               <Login 
-              logIn={props.logIn} 
-              closeModal={closeModal}/>
+              setIsLoggedIn={props.setIsLoggedIn}
+              activeUser={props.activeUser}
+              closeModal={closeModal}
+              setActiveUser={props.setActiveUser}
+              />
           </ ReactModal >
 
 
@@ -94,7 +99,9 @@ useEffect (()=> {
           <h4>  
             <div className='newUser'>
               New User? Click
-                <button className="herebutton" onClick={openNewModal}>
+                <button 
+                  className="herebutton" 
+                  onClick={openNewModal}>
                 here 
                 </button>
               to register for a new account 
@@ -105,8 +112,11 @@ useEffect (()=> {
           <ReactModal 
             isOpen={newDisplay}>
               <Register 
-              logIn={props.logIn}
-              closeNewModal={closeNewModal}
+                activeUser={props.activeUser}
+                isLoggedIn={props.isLoggedIn}
+                closeNewModal={closeNewModal}
+                setIsLoggedIn={props.setIsLoggedIn}
+                setActiveUser={props.setActiveUser}
               />
           </ReactModal>
         </div>  
@@ -115,6 +125,6 @@ useEffect (()=> {
   ) 
 } 
 
-export default App
+export default LoginOrRegister
 
 

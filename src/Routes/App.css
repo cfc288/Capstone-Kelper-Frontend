@@ -16,6 +16,16 @@ body{
     
 }
 
+.div-navBar-list{
+    display: inline;
+}
+.navBar-list {
+    display: inline;
+}
+
+
+
+
 h1{
     text-align: center;
     margin-top: 10%;

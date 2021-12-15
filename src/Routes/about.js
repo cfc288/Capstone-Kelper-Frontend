@@ -5,6 +5,14 @@ function About(props){
     //showMain={showMain}
     //showAbout={showAbout}
     //showInbox={showInbox}
+    // activeUser={activeUser} 
+    // isLoggedIn={isLoggedIn}
+    // showMain={showMain}
+    // showAbout={showAbout}
+    // showInbox={showInbox}
+    // openInbox={openInbox}
+    // openAbout={openAbout}
+    // openMain={openMain}
     console.log('props.showMain in About',props.showMain)
     console.log('props.showAbout in About',props.showAbout)
 

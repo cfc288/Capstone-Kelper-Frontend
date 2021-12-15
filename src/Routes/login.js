@@ -1,13 +1,26 @@
 import React, { Component, useState, useEffect } from 'react'
-import Register from '../Register/register'
+import Register from './register'
 import ReactModal from 'react-modal';
-import About from '../About/about';
-import './login.css';
+import About from './about';
+
 
 let baseUrl = process.env.REACT_APP_BASEURL
 
 function Login (props){
-    //logIn={props.logIn}
+    // activeUser={activeUser} 
+    // isLoggedIn={isLoggedIn}
+    // setIsLoggedIn={setIsLoggedIn}
+    // showMain={showMain}
+    // showAbout={showAbout}
+    // showInbox={showInbox}
+    // openInbox={openInbox}
+    // openAbout={openAbout}
+    // openMain={openMain}
+    // closeModal={closeModal}
+    //_________
+    // setIsLoggedIn={props.setIsLoggedIn}
+   
+//----------------------------------
     const[email, setEmail] = useState('')
     const[username, setUsername] = useState('')
     const[password, setPassword] = useState('')
@@ -48,7 +61,9 @@ function Login (props){
                 setEmail('')
                 setUsername('')
                 setPassword('')
-                props.logIn(data.data)
+                props.setActiveUser(data.data)
+                props.setIsLoggedIn(true)
+            
             }
         })
     }
