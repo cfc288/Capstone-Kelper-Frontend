@@ -68,23 +68,15 @@ function NavBar(props){
 
 return(
   <div className='div-navBar-list'>
-      <ul className='ul-navBar-list'>
-            <li>
-            <button onClick={(e)=> {props.openMain(e)}} > Home </button>
-            </li>
-            ||
-            <li>
-              <button onClick={(e)=> {props.openAbout(e)}}>About</button>
-            </li>
-            ||
-            <li>
-              <button onClick={(e)=> {props.openInbox(e)}}>Inbox</button>
-            </li>
-            ||
-            <li>
-              <button onClick={()=> props.logout()}> Log Out </button>
-            </li>
-      </ul>
+            
+            <button onClick={(e)=> {props.openMain(e)}} className="navBarButtons" > Home </button>
+            
+              <button onClick={(e)=> {props.openAbout(e)}} className="navBarButtons">About</button>            
+            
+              <button onClick={(e)=> {props.openInbox(e)}} className="navBarButtons">Inbox</button>           
+           
+              <button onClick={()=> props.logout()} className="navBarButtons"> Log Out </button>
+                  
     </div>
       )
 }

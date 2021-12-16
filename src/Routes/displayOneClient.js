@@ -5,13 +5,16 @@ let baseUrl = process.env.REACT_APP_BASEURL
 
 export default function DisplayOneClient(props) {
   // client={client} 
-  //incidents={incidents}
+  // incidents={incidents}
   // deleteClientOnClick={props.deleteOnClick} 
   // newReport={addNewReport}
-	console.log('props.clientID on displayOneClient', props.clientId)
-  console.log('props.client on displayOneClient', props.client[0].id)
+  // activeUser={props.activeUser}
+
+  console.log('props.client on displayOneClient', props.client)
+	console.log('props.clientID on displayOneClient', props.clientId.name)
+  console.log('props.client[0].name on displayOneClient', props.client[0].name)
   console.log('baseUrl + /incidents', baseUrl + '/incidents/allreportsperclient/' + props.clientId )
-  // console.log('props.report on displayOneClient',props.incidents)
+  // console.log('props.report on displayOneClient ', props.incidents)
   console.log('user', props.user )
   const [allReports, setReports] = useState([])
   // const [incidents, setIncidents] = useState([])
@@ -196,21 +199,24 @@ const passID = (id) => {
 
 
 	return(
-		<div >
-        <h1> {props.client.name} </h1>
-        <button onClick={(e)=>{props.deleteOnClick(e, props.client.id)}}>Delete Client</button>
+    <div className='evenMoreOuter'>
+		<div className='outerDivDisplayOne'>
+        <h3> Client Reported Name: <div className='oneClientName'> {props.client[0].name} </div> </h3>
+        <button className='deleteOneClient' onClick={(e)=>{props.deleteOnClick(e, props.client.id)}}>Delete Client</button>
         <br />
         <br />
         <br />
 
         {
           showForm ?
-        <form onSubmit={(e)=>{addNewReport(e, props.clientId)}} isOpen={showForm}>
+        <form onSubmit={(e)=>{addNewReport(e, props.clientId)}} isOpen={showForm} className='displayOneFormDiv'>
         
         <input id="report" type="text" name="report" value={newReport} onChange={(e) => setNewReport(e.target.value)} placeholder="Please describe incident here"/>
 				
-				<input type="submit" value="Add Report"/><br />
+				<button type="submit" value="Add Report" > Add Report </button>
+        <br />
         <button onClick={()=> setShowForm(false)}> Close Form </button>
+
         </form>
         : <button onClick={()=> setShowForm(true)}>New Report </button>
         }
@@ -218,30 +224,30 @@ const passID = (id) => {
       <div>
       {allReports.map((report) => {
 						return (
-			<table>
+			<table className='mapClientsTable'>
 				<thead>
 					<tr>
-						<td>Date Report Created</td>||
-						<td>Location</td> ||
-						<td>Company</td> ||
-            <td>EmployeeTitle</td> ||
-            <td>Incident Report</td> ||
-            <td> Flagged? </td>
+						<td className='mapClientsTableData' >Date Report Created</td>
+						<td className='mapClientsTableData'>Location</td>
+						<td className='mapClientsTableData'>Company</td> 
+            <td className='mapClientsTableData'>EmployeeTitle</td> 
+            <td className='mapClientsTableData'>Incident Report</td> 
+            <td className='mapClientsTableData'> Flagged? </td>
 					</tr>    
 				</thead>
             
 				<tbody>
                 
 							<tr key={report.client_referrence.id}>
-                <td>{report.created_at}</td>||
-								<td>{report.employee_data_ref.location}</td> ||
-                <td>{report.employee_data_ref.company}</td> ||
-								<td>{report.employee_data_ref.employee_title}</td> ||
-                <td> {report.incident_event} </td> ||
-                <td>
+                <td className='mapClientsTableData'>{report.created_at}</td>
+								<td className='mapClientsTableData'>{report.employee_data_ref.location}</td>
+                <td className='mapClientsTableData'>{report.employee_data_ref.company}</td>
+								<td className='mapClientsTableData'>{report.employee_data_ref.employee_title}</td>
+                <td className='mapClientsTableData'> {report.incident_event} </td>
+                <td className='mapClientsTableData'>
                   { report.flagged_for_review ? <p> Flagged </p>
                   : null
-                  } </td> ||
+                  } </td>
                 <td><button onClick={(e)=>{deleteIncidentOnClick(e, report.id)}}>Delete Report</button></td>
 							</tr>
 
@@ -251,12 +257,12 @@ const passID = (id) => {
                   showEditForm && clientID === report.id ?
                   <form onSubmit={(e)=>{editOnClick(e, newReport, report.id)}} isOpen={showEditForm}> 
                   <input id="report" type="text" name="report" value={newReport} onChange={(e) => setNewReport(e.target.value)} placeholder="Edit Report Here"/>
-                  <input type="submit" value="Edit Report"/>
+                  <button type="submit" value="Edit Report"> Edit Report </button>
 
                   <button onClick={()=> setShowEditForm(false)}>close form</button>
                   <button onClick={(e)=>{flagOnClick(e, report.id)}}> Flag Report </button>
                  
-                  { props.user.is_admin ? 
+                  { props.activeUser.is_admin ? 
                   <button onClick={(e)=>{unFlagOnClick(e, report.id)}}> Unflag </button>
                   : null
                   }
@@ -274,6 +280,7 @@ const passID = (id) => {
       </div>
 
 		</div>
+    </div>
 	)
 }
 

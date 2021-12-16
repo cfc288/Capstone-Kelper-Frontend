@@ -1,7 +1,10 @@
 import React, { Component, useState, useEffect } from 'react'
 import Register from './register'
-import ReactModal from 'react-modal';
+import Modal from 'react-modal';
 import About from './about';
+import './App.css'
+
+
 
 
 let baseUrl = process.env.REACT_APP_BASEURL
@@ -78,44 +81,45 @@ function Login (props){
 
     
         return (
-            <div className="loginDiv">
-                <h2> Login Modal</h2>
-            <div>
-                <div>
+            <div className='mostOutsideFormDiv'>
+                <h2 className='login-title'> Login </h2>
+            <div className='outsideFormDiv'>
+                <div className='formDiv'>
                     <form onSubmit={fetchLogin}>
                             <div className='user-box'>
                                 <label >
-                                    Username:
+                                    Username   :   
                                 </label>
+                                <br />
                                     
                                         <input type='text' id='name' name='name' onChange={(e) => setUsername(e.target.value)} value={username} placeholder='Username'/>
                             </div>
-                        <br />
+                       
                             <div className='user-box'>
                                 <label >
                                     Email:
                                 </label>
+                                <br />
                                     
                                         <input id="email" type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email"/>
                             </div>
-                        <br />
+                        
                             <div className='user-box'>
                                 <label >
                                     Password:
                                 </label>
-                                    
-                                        <input type='text' id='password' name='password' onChange={(e) => setPassword(e.target.value)} value={password} placeholder='Password'/>
+                                <br />
+                                        <input type='password' id='password' name='password' onChange={(e) => setPassword(e.target.value)} value={password} placeholder='Password'/>
                             </div>
-                        <br />
-                            <button variant="contained" type="submit">
-                        Log In
+                            <button variant="contained" type="submit" className='login-button-modal'>
+                            Log In
                         </button>
                         <br />
                     </form>
                 </div>
                 <br />
                 <div>
-                    <button  onClick={props.closeModal} className="back-button">Back</button>
+                    <button  onClick={props.closeModal} className="close-button"> Close </button>
                 </div>
             </div>
 

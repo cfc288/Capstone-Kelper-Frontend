@@ -35,6 +35,7 @@ console.log('isLoggedIn on main', props.isLoggedIn)
     const [selectClientId, setSelectClientID] = useState('')
     const [searchClient, setSearchClient] = useState('')
     const [filteredClients, setFilteredClients] = useState([])
+    const [showClients, setShowClients] = useState(true)
 
 
  
@@ -163,120 +164,140 @@ console.log('isLoggedIn on main', props.isLoggedIn)
         // console.log('clients delete route')
       }
     
-    // const filterIncidentsByClient = (id) => {
-    //     return incidents.filter((incident)=>{
-    //         return incident.client_referrence.id === id
-    //     })
-    // }
+    const filterIncidentsByClient = (id) => {
+        return incidents.filter((incident)=>{
+            return incident.client_referrence.id === id
+        })
+    }
 
-    // const clientFilterOnChange = (e) => {
-    //     setSearchClient({
-    //         inputValue: e.target.value
-    //     })
-    // }
-
-    // const getfilteredClients = () => {
-    //     setFilteredClients()
-    // }
 
 
 
     return(
         <>
-    <div>
+    <div className='outerDivOnMain'>
             <div>
-                <p> show main is true </p>
+                
                 <div>
                     <div> 
-                        <h1>Main.js</h1>
+                        <div className='titleOnMain'> Kelper </div>
             
 
-            
+                    
                     {
                         showForm ? 
                         <div>
                             <div>
-                                <form onSubmit={addNewClient} isOpen={showForm}> 
-                                <input id="name" type="text" name="name" value={newName} onChange={(e) => setNewName(e.target.value)} placeholder="Name of Client"/>
+                                <form onSubmit={addNewClient} isOpen={showForm}
+                                className='addNewClientForm'> 
+                                <input id="name" type="name" name="name" value={newName} onChange={(e) => setNewName(e.target.value)} placeholder="Name of Client" className='addNewClientFormInput'/>
+        
                                 
-                                <input type="submit" value="Add Client"/>
+                                <button type="submit" value="Add Client" className='newClientSubmitButton'> Add Client
+                                </button>
+                                <br />
                                 <br />
                                 <button onClick={()=> setShowForm(false)}>close form</button>
                                 </form> 
                             </div>
                         </div>
 
-                        : <button onClick={()=> setShowForm(true)}> New client </button>
+                        : <button onClick={()=> setShowForm(true)}> Add New Client </button>
                     }
 
                     <h3>Click on the clients name to see or add incident reports</h3>
 
                 <div>
-                    {clients.map((client) => {
-                        return(
-                        <table key={client.id} >
-                            <tr>
+                    {showClients ? 
+                    
+                    <div > 
+                        {clients.map((client) => {
+
+                            return(
+                            <div>
+                            <div className="outsideDivClientsMap">
+                            
+                            <table className='mapClientsTable' key={client.id} >
+                                <tr>
                                 <td> 
                                     <button onClick={() => {openModal( client.id)}}> {client.name} </button> 
                                 </td>
-                                <td>
-                                    <button onClick={(e)=>{deleteOnClick(e, client.id)}}>Delete Client</button>
-                                </td>
-                            </tr>
                             
-                            
-                            <tr >
-                                <td>Date/Time Created </td> ||
-                                <td>Location</td> ||
-                                <td>Company</td> ||
-                                <td>EmployeeTitle</td> ||
-                            </tr>
-                            <ReactModal 
-                            isOpen={display} clientID={clientID}>
-                                <DisplayOneClient 
-                                clientId={clientID}
-                                client={clients}
-                                activeUser={props.activeUser}
-                                deleteClientOnClick={props.deleteOnClick} 
-                                />
-                                <button variant="primary" onClick={closeModal}>close modal displayClient.js
-                                </button>
-                            </ReactModal>
+                                </tr>
+                                
 
-                                <tbody>
-                                {
-                                filterIncidentsByClient(client.id).map((report) => {
-                                return (
-                                    <tr key={report.client_referrence.id}>
-                                        <td>
-                                            {report.client_referrence.id}
-                                        </td>
-                                        <td>
-                                            {report.created_at}
-                                        </td>
-                                            ||
-                                        <td>
-                                            {report.employee_data_ref.location}
-                                        </td> 
-                                            ||
-                                        <td>
-                                            {report.employee_data_ref.company}
-                                        </td> 
-                                            ||
-                                        <td>
-                                            {report.employee_data_ref.employee_title}
-                                        </td> 
-                                            ||
+                                <tr className='mapClientsTableRow'>
+
+                                    <td className='mapClientsTableData'>Date/Time Created </td>  
+                                    <td className='mapClientsTableData'>Location 
+                                    </td>
+                                    <td className='mapClientsTableData'>Company
+                                    </td>
+                                    <td className='mapClientsTableData'>Employee Title
+                                    </td>
+                                    <td >
+                                    <button className='delteClientOnMain' onClick={(e)=>{deleteOnClick(e, client.id)}}>Delete Client</button>
+                                    </td>
+                                </tr>
+                                <ReactModal 
+                                isOpen={display} 
+                                clientID={clientID}
+                                overlayClassName='overlayLoginModal'
+                                className='displayOne'
+                                >
+
+                                    <DisplayOneClient 
+                                    clientId={clientID}
+                                    client={clients}
+                                    activeUser={props.activeUser}
+                                    deleteClientOnClick={props.deleteOnClick}
+                                    overlayClassName='overlayLoginModal'
+                                    />
+
+                                    <button variant="primary" onClick={closeModal}>close modal displayClient.js
+                                    </button>
+                                </ReactModal>
+
+                                    <tbody>
+                                    { 
+                                    filterIncidentsByClient(client.id).map((report) => {
+                                    return (
+                                        <tr key={report.client_referrence.id}>
                                         
+                                            <td className='mapClientsTableData'>
+                                                {report.created_at}
+                                            </td>
                                         
-                                    </tr>
-                                )
-                            })}
-                                </tbody> 
-                        
-                            </table>
-                        )
-                    })}
+                                            <td className='mapClientsTableData'>
+                                                {report.employee_data_ref.location}
+                                            </td > 
+                                    
+                                            <td className='mapClientsTableData'>
+                                                {report.employee_data_ref.company}
+                                            </td> 
+                                        
+                                            <td className='mapClientsTableData'>
+                                                {report.employee_data_ref.employee_title}
+                                            </td> 
+                                                
+                                        
+                                        </tr>
+                                    )
+                                })}
+                                    </tbody> 
+                            
+                                </table>
+                                <br />
+                            </div>
+                                <br />
+                            </div>
+                            
+                            )
+                        })}
+
+                    </div>
+                    : <p> Sort by clients here </p> }
+                    
                     </div>          
                 </div>
             </div>
