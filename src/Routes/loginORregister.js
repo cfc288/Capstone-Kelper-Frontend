@@ -65,15 +65,20 @@ useEffect (()=> {
  
   return (
     <div>
-      
-      
-      <button className="about-button" onClick={openAboutModal}> About </button>
-      <ReactModal isOpen={aboutDisplay}>
-          <button onClick={closeAboutModal}>close about modal App.js
-          </button>
-          <About />
-      </ReactModal>
 
+      <div className='newUserDiv'>
+                  <h4> 
+                  New User? Click : 
+                    <button 
+                      className="herebutton" 
+                      onClick={openNewModal}>
+                    here 
+                    </button>:  
+                  to register for a new account 
+                  </h4>
+        </div> 
+
+        
 
       { !props.isLoggedIn &&
         <div className='frontAreaMainDiv'>
@@ -81,11 +86,30 @@ useEffect (()=> {
             <div>
             <h1 className="oval"> Kelper </h1>
 
-            <button className="loginbutton" type="submit" onClick={openModal}>
-              Log In
-            </button>
+              <div className='aboutLoginDiv'> 
+
+                <div>
+                <button className="about-button" onClick={openAboutModal}> About </button>
+                <ReactModal isOpen={aboutDisplay} >
+                    <button onClick={closeAboutModal}> Back
+                    </button>
+                    <About />
+
+                </ReactModal>
+                </div>
+
+                <div>
+                <button className="loginbutton" type="submit" onClick={openModal}>
+                  Login Here
+                </button>
+                </div>
+
+              </div>
 
             </div>
+
+
+
             < ReactModal 
               overlayClassName='overlayLoginModal'
               isOpen={display}
@@ -98,26 +122,8 @@ useEffect (()=> {
                 setActiveUser={props.setActiveUser}
                 />
             </ ReactModal >
-
-
-
-
-            
-               
-                <div className='newUserDiv'>
-                  <h4> 
-                  New User? Click  
-                    <button 
-                      className="herebutton" 
-                      onClick={openNewModal}>
-                    here 
-                    </button>   
-                  to register for a new account 
-                  </h4>
-                </div> 
-              
-           
         </div >
+
           <ReactModal 
             isOpen={newDisplay}>
               <Register 

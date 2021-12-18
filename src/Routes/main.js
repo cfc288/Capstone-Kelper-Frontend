@@ -6,6 +6,7 @@ import ReactModal from 'react-modal';
 import DisplayOneClient from './displayOneClient';
 import Inbox from './inbox';
 import './App.css'
+import SearchedClients from './searchedClients';
 
 let baseUrl = process.env.REACT_APP_BASEURL
 
@@ -36,6 +37,7 @@ console.log('isLoggedIn on main', props.isLoggedIn)
     const [searchClient, setSearchClient] = useState('')
     const [filteredClients, setFilteredClients] = useState([])
     const [showClients, setShowClients] = useState(true)
+    const [showSortedClients, setShowSortedClients] = useState(false)
 
 
  
@@ -171,12 +173,23 @@ console.log('isLoggedIn on main', props.isLoggedIn)
     }
 
 
+    const changeView = () => {
+        setShowSortedClients(true)
+        setShowClients(false)
+        
+    }
+
+    const changeViewBack = () => {
+        setShowSortedClients(false)
+        setShowClients(true)
+    }
 
 
     return(
         <>
     <div className='outerDivOnMain'>
             <div>
+                
                 
                 <div>
                     <div> 
@@ -187,7 +200,7 @@ console.log('isLoggedIn on main', props.isLoggedIn)
                     {
                         showForm ? 
                         <div>
-                            <div>
+                            <div className='showFormDiv'>
                                 <form onSubmit={addNewClient} isOpen={showForm}
                                 className='addNewClientForm'> 
                                 <input id="name" type="name" name="name" value={newName} onChange={(e) => setNewName(e.target.value)} placeholder="Name of Client" className='addNewClientFormInput'/>
@@ -205,6 +218,30 @@ console.log('isLoggedIn on main', props.isLoggedIn)
                         : <button onClick={()=> setShowForm(true)}> Add New Client </button>
                     }
 
+                <div>
+                { showSortedClients ? 
+                <div >
+                    <button onClick={changeViewBack}> Close Sort </button>
+                    
+                    <SearchedClients 
+                        incidents={incidents}
+                        changeViewBack={changeViewBack}
+                    /> 
+                    
+                 </div>
+                :  
+                
+                <button onClick={changeView}> 
+                Sort Clients </button>
+                
+                }
+                </div>
+
+
+
+
+
+                
                     <h3>Click on the clients name to see or add incident reports</h3>
 
                 <div>
@@ -256,13 +293,14 @@ console.log('isLoggedIn on main', props.isLoggedIn)
 
                                     <button variant="primary" onClick={closeModal}>close modal displayClient.js
                                     </button>
+
                                 </ReactModal>
 
                                     <tbody>
                                     { 
                                     filterIncidentsByClient(client.id).map((report) => {
                                     return (
-                                        <tr key={report.client_referrence.id}>
+                                        <tr key={report.client_referrence.id} className='mapClientsTableRow'>
                                         
                                             <td className='mapClientsTableData'>
                                                 {report.created_at}
@@ -280,7 +318,6 @@ console.log('isLoggedIn on main', props.isLoggedIn)
                                                 {report.employee_data_ref.employee_title}
                                             </td> 
                                                 
-                                        
                                         </tr>
                                     )
                                 })}

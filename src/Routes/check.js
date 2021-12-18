@@ -121,7 +121,7 @@ function Check(props){
                                                     openAbout={openAbout}
                                                     openMain={openMain}
                                                 />
-                                            : <p> showMain is false</p>
+                                            : null
                                             }
                                         </div>
 
@@ -137,7 +137,8 @@ function Check(props){
                                                     openAbout={openAbout}
                                                     openMain={openMain}
                                                 />
-                                            : <p>showAbout is false</p>
+                                                
+                                            : null
                                             }
                                         </div>
 
@@ -154,7 +155,7 @@ function Check(props){
                                                     openMain={openMain}
 
                                                 />
-                                            : <p>showInbox is false </p>
+                                            : null
                                             }
                                         </div>
 

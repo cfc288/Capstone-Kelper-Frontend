@@ -88,21 +88,24 @@ const newMessage = (event, recieverID) => {
     return (
         <>
         <div>
+            <br />
             <form onSubmit={(e)=>{getReciverID(e, recieverName)}} >
             <label >
                     Reciever:
                 </label>
-                <input type='text' id='name' name='name' onChange={(e) => setRecieverName(e.target.value)} value={recieverName} placeholder='Reciever'/>
+                <input type='text' id='reciever' name='name' onChange={(e) => setRecieverName(e.target.value)} value={recieverName} placeholder='Username of Reciver'/>
                 <br />
                 <br />
                 
                 <label >
                     Message:
                 </label>
-                <input id="message" type="test" name="message" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Email"/>
+                <input type='message' id="message" type="test" name="message" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Type Message Here"/>
                 <br />
                 <br />
-                <input type="submit" value="Send Message"/><br />
+                <button type="submit" value="Send Message"> Send </button>
+                <br />
+                <br />
             </form>
         </div>
         </>

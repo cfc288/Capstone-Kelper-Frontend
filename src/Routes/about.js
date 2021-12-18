@@ -20,19 +20,18 @@ function About(props){
 
     return(
         <>
-        <div>
-            <div>
+        <div className='aboutOuterMostDiv'>
+            <div className='aboutSecondDiv'>
            
-                <div>
+                <div className='aboutHeaderDiv'>
                     <header>
-                        About Page
                         <h1>About Kelper</h1>
                     </header>
                 </div>
 
 
 
-                <div>
+                <div className='mostInnerDiv'>
                     <p> 
                         Kelper is a platform where companies can come together to analyze when to cut loose a client. In order to grow businesses you must cater to the clients actually bringing in revenue and supporting your business. 
                         <br/>

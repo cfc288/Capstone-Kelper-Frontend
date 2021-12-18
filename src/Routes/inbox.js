@@ -78,52 +78,62 @@ const deleteMessageOnClick = (e, id) => {
         <div>
                 <div>
                     <div>
-                        <h1>Message Inbox</h1>
+                        <h2>Inbox</h2>
                         <br />
-                        <select> 
-                            <option> Sort By: </option>
-                            <option> Sender (Alphabetical) </option>
+                        {/* <select> 
+                            <option> Sort Messages By: </option>
+                            <option> Sender (A - Z) </option>
+                            <option> Sender (Z - A) </option>
                             <option> Newest First </option>
                             <option> Oldest First </option>
-                        </select> 
-                        |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+                        </select>  */}
 
                         <button onClick={openModal}> Send New Message </button>
-                        <ReactModal isOpen={display}>
+                        <ReactModal isOpen={display}
+                        overlayClassName='overlayLoginModal'>
+                            <button onClick={closeModal}> Cancel </button>
+                            <br />
                             <NewMessage
                             activeUser={props.activeUser}
                             closeModal={closeModal}
                             />
-                            <button onClick={closeModal}>close modal inbox</button>
+                            
                         </ReactModal >
-                    
-
-
                         <br />
-                        <select> 
+                        <br />
+                        <br />
+                        {/* <select> 
                             <option> Search Messages By?: </option>
                             <option> Sender (Alphabetical) </option>
                             <option> Newest First </option>
                             <option> Oldest First </option>
-                        </select>
+                        </select> */}
 
                         <div>
-                            <table >
+                            <div>
+                            <table className='outsideDivClientsMap' >
                                 { 
                                     allUserMessages.map((message)=>{
                                         return (
-                                            <tbody key={message.id}>
-                                                <tr>
-                                                    <td>Sent by:</td>
-                                                    <td> {message.reciever.username} </td>
-                                                    <td> </td>
+                                            <tbody className='mapMessagesInboxTable' key={message.id}>
+                                                <tr className='mapMessagesInboxTableData' >
+                                                    <td className='mapMessagesInboxTableData'>Sent by:       {message.reciever.username} 
+                                                    </td>
+                                                </tr>
+            
+                                                <tr className='mapMessagesTableRow'>
+                                                    <td className='mapClientsTableData'>{message.message}
+                                                    <br />
+                                                    <br />
+                                                    <br />
+                                                    <br />
+                                                    <br />
+                                                    <br />
                                                     
+                                                    </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>{message.message}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
+                                                    <td >
                                                         <button onClick={(e)=>{deleteMessageOnClick(e, message.id)}}> Delte Message</button>
                                                     </td>
                                                 </tr>
@@ -132,6 +142,7 @@ const deleteMessageOnClick = (e, id) => {
                                         })}
                                         
                              </table>
+                             </div>
                         </div>
 
                     </div>
