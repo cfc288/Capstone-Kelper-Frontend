@@ -5,18 +5,39 @@ Front end for capstone project for Kelper (in React)
 Front End Deployment Link:
 https://kelper-frontend-capstone.herokuapp.com/
 
-Kelper is a website designed to help connect companies while assisting in their customer analytics by giving companies a way to track and hold the select public accountable, all the while continuing to grow their businesses and to apply and follow the Pareto Principle (80/20 rule)
+Back End Deployment Link:
+https://kelper-backend-capstone.herokuapp.com/
+
+orriginal git hub repository for front end and back end:
+https://github.com/cfc288/Capstone-Project
+
+
+Kelper is a full CRUD website designed to help connect companies while assisting in their customer analytics by giving companies a way to track and hold the select public accountable, all the while continuing to grow their businesses and to apply and follow the Pareto Principle (80/20 rule)
 
 
 Technologies used:
-React, Heroku, ReactModal, React useState,
+Front End-
+React, JSX, Heroku, ReactModal, React useState,
+
+Back End-
+Flask, Python, SQL
+
+
+
+
+
 
 To run site locally:
+Front End:
 in terminal 'npm i' to install all associated packages
 
+Back End:
+in terminal 'pip3 install -r requirements.txt' to install all associated packaged 
 
 
 
+orrignal wireframe images:
+https://github.com/cfc288/Capstone-Kelper-Frontend/tree/main/src/pics/attatched%20pictures
 
 
 
@@ -63,7 +84,12 @@ Messages:
 
 
 
-******New Stretch Goals
+Further Stretch Goals
+
+CSS:
+[] - edit tab design
+
+
 *Admin: [this might need to be its own model as well, i need to look into this further]
 [x] - can flag or unflag a review
 [x] - ability to change and delete reviews, (client pages?)
