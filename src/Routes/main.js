@@ -222,7 +222,7 @@ console.log('isLoggedIn on main', props.isLoggedIn)
                 { showSortedClients ? 
                 <div >
                     <button onClick={changeViewBack}> Close Sort </button>
-                    
+
                     <SearchedClients 
                         incidents={incidents}
                         changeViewBack={changeViewBack}
@@ -282,7 +282,8 @@ console.log('isLoggedIn on main', props.isLoggedIn)
                                 overlayClassName='overlayLoginModal'
                                 className='displayOne'
                                 >
-
+                                    <button variant="primary" onClick={closeModal} className='backDisplayOneButton'> Back
+                                    </button>
                                     <DisplayOneClient 
                                     clientId={clientID}
                                     client={clients}
@@ -291,8 +292,7 @@ console.log('isLoggedIn on main', props.isLoggedIn)
                                     overlayClassName='overlayLoginModal'
                                     />
 
-                                    <button variant="primary" onClick={closeModal}>close modal displayClient.js
-                                    </button>
+                                    
 
                                 </ReactModal>
 

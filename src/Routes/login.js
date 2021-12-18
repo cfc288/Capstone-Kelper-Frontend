@@ -67,6 +67,8 @@ function Login (props){
                 props.setActiveUser(data.data)
                 props.setIsLoggedIn(true)
             
+            } else {
+                return alert('Inncorrect password, email, or username')
             }
         })
     }
@@ -92,7 +94,7 @@ function Login (props){
                                 </label>
                                 <br />
                                     
-                                        <input type='text' id='name' name='name' onChange={(e) => setUsername(e.target.value)} value={username} placeholder='Username'/>
+                                <input type='text' id='loginName' name='name' onChange={(e) => setUsername(e.target.value)} value={username} placeholder='Username'/>
                             </div>
                        
                             <div className='user-box'>
