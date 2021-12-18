@@ -43,8 +43,6 @@ https://github.com/cfc288/Capstone-Kelper-Frontend/tree/main/src/pics/attatched%
 
 
 
-
-
 Current Content
 [x] - More in the about section:
 Login/Register functions:
